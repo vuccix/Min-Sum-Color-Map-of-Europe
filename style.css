@@ -9,89 +9,25 @@
 
 .map {
     text-align: center;
+    width: 100%;
+    height: 100%;
+    vertical-align: baseline;
 }
 
 svg {
     margin: auto;
-    width: 82%;
+    width: 100vh;
+    height: 100%;
 }
 
-/* ----------------------------------------- */
-
-/*
-* Reserved class names:
-* .eu - for members of European Union
-* .eaeu - for members of Eurasian Economic Union
-*/
-
-.circlexx {
-    opacity: 0;
-    fill: #c0c0c0;
-    stroke: #000000;
-    stroke-width: 0.5;
-}
-
-.subxx {
-    opacity: 0;
-    fill: #c0c0c0;
-    stroke: #000000;
-    stroke-width: 0.3;
-}
-
-.landxx {
-    fill: #c0c0c0;
-    stroke: #ffffff;
-    stroke-width: 0.5;
-    fill-rule: evenodd;
-}
-
-.coastxx {
-    stroke-width: 0.5;
-}
-
-.antxx {
-    opacity: 1;
-    fill: #c0c0c0;
-}
-
-.noxx {
-    opacity: 0;
-    fill: #c0c0c0;
-    stroke: #000000;
-    stroke-width: 0.5;
-}
-
-.limitxx {
-    opacity: 0;
-    fill: #c0c0c0;
-    stroke: #ffffff;
-    stroke-width: 0.2;
-    fill-rule: evenodd;
-}
-
-.unxx {
-    opacity: 0;
-    fill: #c0c0c0;
-    stroke: #000000;
-    stroke-width: 0.3;
-}
-
-.oceanxx {
-    opacity: 1;
-    fill: #ffffff;
-    stroke: #000000;
-    stroke-width: 0.5;
-}
-
-.orange { fill: #ff8b3c; transition: .3s linear; }
-.blue { fill: #006aff; transition: .3s linear; }
-.red { fill: #ff4d4d; transition: .3s linear; }
-.yellow { fill: #ffd008; transition: .3s linear; }
-.purple { fill: #b96eff; transition: .3s linear; }
-.green { fill: #37e362; transition: .3s linear; }
-.none { fill: #ffffff; transition: .3s linear; }
+.orange { fill: #ff8b3c; }
+.blue { fill: #006aff; }
+.red { fill: #ff4d4d; }
+.yellow { fill: #ffd008; }
+.purple { fill: #b96eff; }
+.green { fill: #37e362; }
+.none { fill: #ffffff; }
 
 .orange:hover, .blue:hover, .red:hover, .yellow:hover, .purple:hover, .green:hover {
-    filter: brightness(1.5);
-    transition: .3s linear;
+    filter: contrast(200%);
 }

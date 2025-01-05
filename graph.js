@@ -6,256 +6,172 @@ const colors = [
     "yellow", // yellow
     "purple", // purple
     "green", // green
-    "none", // none
 ];
-const default_color = colors.length;
 
 // countries represented in adjacency list
 let countries_graph = {
-    "cz": {
-        neighbours: ["de-", "pl", "sk", "at"],
-        color: colors[default_color]
+	"AL": {
+        neighbours: ["RS", "GR", "ME", "MK", "IT"],
+        color: "none"
     },
-    "de-": {
-        neighbours: ["cz", "pl", "at", "fr-", "ch", "nl-", "be", "lu-", "dk-", "se-"], 
-        color: colors[default_color]
+	"AT": {
+        neighbours: ["CZ", "DE", "SK", "HU", "SI", "IT", "CH"],
+        color: "none"
     },
-    "pl": {
-        neighbours: ["cz", "de-", "sk", "ua-", "by", "se-"],
-        color: colors[default_color]
+	"BE": {
+        neighbours: ["DE", "NL", "FR", "LU", "GB"],
+        color: "none"
     },
-    "sk": {
-        neighbours: ["cz", "at", "pl", "hu", "ua-"],
-        color: colors[default_color]
+	"BG": {
+        neighbours: ["RS", "MK", "GR", "RO", "TR"],
+        color: "none"
     },
-    "at": {
-        neighbours: ["cz", "si", "de-", "sk", "hu", "it-", "ch"],
-        color: colors[default_color]
+	"BA": {
+        neighbours: ["RS", "ME", "HR"],
+        color: "none"
     },
-    "hu": {
-        neighbours: ["at", "sk", "rs-", "si", "hr", "ro", "ua-"],
-        color: colors[default_color]
+	"BY": {
+        neighbours: ["UA", "PL", "LV", "LT", ],
+        color: "none"
     },
-    "rs-": {
-        neighbours: ["hu", "hr", "ba", "ro", "bg", "al", "mk", "me-"],
-        color: colors[default_color]
+	"CH": {
+        neighbours: ["DE", "AT", "FR", "IT"],
+        color: "none"
     },
-    "si": {
-        neighbours: ["hu", "at", "hr", "it-"],
-        color: colors[default_color]
+	"CZ": {
+        neighbours: ["DE", "PL", "SK", "AT"],
+        color: "none"
     },
-    "hr": {
-        neighbours: ["hu", "si", "rs-", "ba", "it-", "me-"],
-        color: colors[default_color]
+	"DE": {
+        neighbours: ["NL", "BE", "LU", "FR", "CH", "AT", "CZ", "PL", "DK", "SE"],
+        color: "none"
     },
-    "ba": {
-        neighbours: ["hr", "rs-", "me-"],
-        color: colors[default_color]
+	"DK": {
+        neighbours: ["DE", "NO", "SE"],
+        color: "none"
     },
-    "ro": {
-        neighbours: ["hu", "rs-", "ua-", "md-", "bg"],
-        color: colors[default_color]
+	"EE": {
+        neighbours: ["LV", "FI", "SE"],
+        color: "none"
     },
-    "ua-": {
-        neighbours: ["hu", "ro", "sk", "pl", "md-", "by", "ru-", "tr"],
-        color: colors[default_color]
+	"FI": {
+        neighbours: ["EE", "SE", "NO"],
+        color: "none"
     },
-    "md-": {
-        neighbours: ["ro", "ua-"],
-        color: colors[default_color]
+	"GB": {
+        neighbours: ["FR", "NO", "IE", "IS", "NL", "BE", "DK"],
+        color: "none"
     },
-    "by": {
-        neighbours: ["pl", "ua-", "ru-"],
-        color: colors[default_color]
+	"GR": {
+        neighbours: ["TR", "AL", "BG", "MK", "IT", "CY"],
+        color: "none"
     },
-    "bg": {
-        neighbours: ["rs-", "ro", "gr-", "tr", "mk"],
-        color: colors[default_color]
+	"HR": {
+        neighbours: ["RS", "AT", "HU", "BA", "SI", "IT", "ME"],
+        color: "none"
     },
-    "gr-": {
-        neighbours: ["mk", "al", "tr", "cy-", "bg", "mt-"],
-        color: colors[default_color]
+	"HU": {
+        neighbours: ["RS", "HR", "AT", "SK", "UA", "RO", "SI"],
+        color: "none"
     },
-    "al": {
-        neighbours: ["mk", "it-", "rs-", "me-", "gr-"],
-        color: colors[default_color]
+	"IE": {
+        neighbours: ["GB", "IS"],
+        color: "none"
     },
-    "mk": {
-        neighbours: ["rs-", "al", "bg", "gr-"],
-        color: colors[default_color]
+	"IS": {
+        neighbours: ["GB", "IE", "NO"],
+        color: "none"
     },
-    "me-": {
-        neighbours: ["rs-", "al", "ba", "it-", "hr"],
-        color: colors[default_color]
+	"IT": {
+        neighbours: ["AL", "HR", "CH", "SI", "GR", "ME", "AT", "FR", "ES"],
+        color: "none"
     },
-    "tr": {
-        neighbours: ["gr-", "bg", "cy-", "ru-", "ge-", "am", "az-", "sy", "iq", "lb-", "ir-", "ua-"],
-        color: colors[default_color]
+	"LT": {
+        neighbours: ["LV", "BY", "PL", "SE"],
+        color: "none"
     },
-    "cy-": {
-        neighbours: ["gr-", "tr", "sy", "lb-"],
-        color: colors[default_color]
+	"LU": {
+        neighbours: ["DE", "FR", "BE"],
+        color: "none"
     },
-    "it-": {
-        neighbours: ["si", "fr-", "al", "me-", "at", "hr", "ch", "es-", "tn-", "dz", "ma-", "va-"],
-        color: colors[default_color]
+	"LV": {
+        neighbours: ["LT", "EE", "BY", "SE"],
+        color: "none"
     },
-    "ch": {
-        neighbours: ["it-", "at", "fr-", "de-"],
-        color: colors[default_color]
+	"MD": {
+        neighbours: ["RO", "UA"],
+        color: "none"
     },
-    "fr-": {
-        neighbours: ["it-", "ch", "be", "de-", "lu-", "es-", "UK_GB", "nl-"],
-        color: colors[default_color]
+	"MK": {
+        neighbours: ["RS", "GR", "AL", "BG"],
+        color: "none"
     },
-    "es-": {
-        neighbours: ["fr-", "pt-", "it-", "tn-", "dz"],
-        color: colors[default_color]
+	"ME": {
+        neighbours: ["RS", "BA", "AL", "IT", "HR"],
+        color: "none"
     },
-    "pt-": {
-        neighbours: ["es-", "ma-"],
-        color: colors[default_color]
+	"NL": {
+        neighbours: ["BE", "DE", "GB", "DK"],
+        color: "none"
     },
-    "be": {
-        neighbours: ["fr-", "nl-", "de-", "lu-", "UK_GB"],
-        color: colors[default_color]
+	"NO": {
+        neighbours: ["SE", "GB", "DK", "FI", "IS"],
+        color: "none"
     },
-    "lu-": {
-        neighbours: ["fr-", "de-", "be", "nl-"],
-        color: colors[default_color]
+	"PL": {
+        neighbours: ["DE", "CZ", "SK", "UA", "BY", "LT", "SE"],
+        color: "none"
     },
-    "nl-": {
-        neighbours: ["de-", "be", "UK_GB", "lu-", "fr-"],
-        color: colors[default_color]
+	"PT": {
+        neighbours: ["ES"],
+        color: "none"
     },
-    "UK_GB": {
-        neighbours: ["fr-", "be", "nl-", "ireland", "no-", "is", "fo-", "im-"],
-        color: colors[default_color]
+	"RO": {
+        neighbours: ["RS", "MD", "BG", "UA", "HU", "TR"],
+        color: "none"
     },
-    "ireland": {
-        neighbours: ["UK_GB", "is", "im-"],
-        color: colors[default_color]
+	"RS": {
+        neighbours: ["ME", "MK", "HR", "BA", "HU", "RO", "AL", "BG"],
+        color: "none"
     },
-    "dk-": {
-        neighbours: ["de-", "se-", "no-"],
-        color: colors[default_color]
+	"SK": {
+        neighbours: ["CZ", "PL", "UA", "HU", "AT"],
+        color: "none"
     },
-    "se-": {
-        neighbours: ["de-", "dk-", "pl", "no-", "fi-"],
-        color: colors[default_color]
+	"SI": {
+        neighbours: ["HR", "HU", "AT", "IT"],
+        color: "none"
     },
-    "no-": {
-        neighbours: ["dk-", "se-", "UK_GB", "is", "ru-", "fi-"],
-        color: colors[default_color]
+	"SE": {
+        neighbours: ["NO", "DK", "FI", "DE", "PL", "EE", "LV", "LT"],
+        color: "none"
     },
-    "is": {
-        neighbours: ["UK_GB", "ireland", "no-", "fo-"],
-        color: colors[default_color]
+	"UA": {
+        neighbours: ["BY", "PL", "SK", "HU", "RO", "MD", "TR", "GE"],
+        color: "none"
     },
-    "ru-": {
-        neighbours: ["ua-", "by", "pl", "no-", "tr", "fi-"],
-        color: colors[default_color]
+	"FR": {
+        neighbours: ["BE", "LU", "DE", "CH", "IT", "ES", "GB"],
+        color: "none"
     },
-    "lt": {
-        neighbours: ["pl", "by", "ru-", "lv", "ee-"],
-        color: colors[default_color]
+	"ES": {
+        neighbours: ["PT", "FR", "IT"],
+        color: "none"
     },
-    "lv": {
-        neighbours: ["by", "ru-", "lt", "ee-"],
-        color: colors[default_color]
+    "TR": {
+        neighbours: ["GR", "BG", "RO", "UA", "GE", "AM", "CY"],
+        color: "none"
     },
-    "fi-": {
-        neighbours: ["se-", "ru-", "no-", "ee-"],
-        color: colors[default_color]
+    "GE": {
+        neighbours: ["AM", "TR", "UA"],
+        color: "none"
     },
-    "ge-": {
-        neighbours: ["ru-", "tr", "am", "az-"],
-        color: colors[default_color]
+    "AM": {
+        neighbours: ["GE", "TR"],
+        color: "none"
     },
-    "am": {
-        neighbours: ["tr", "ge-", "az-", "ir-"],
-        color: colors[default_color]
-    },
-    "az-": {
-        neighbours: ["ru-", "am", "ge-", "tr", "kz-", "ir-"],
-        color: colors[default_color]
-    },
-    "ee-": {
-        neighbours: ["ru-", "lv", "lt", "fi-"],
-        color: colors[default_color]
-    },
-    "kz-": {
-        neighbours: ["ru-", "az-"],
-        color: colors[default_color]
-    },
-    "sy": {
-        neighbours: ["tr", "cy-", "lb-", "iq"],
-        color: colors[default_color]
-    },
-    "lb-": {
-        neighbours: ["sy", "cy-", "tr"],
-        color: colors[default_color]
-    },
-    "iq": {
-        neighbours: ["sy", "tr", "ir-"],
-        color: colors[default_color]
-    },
-    "ir-": {
-        neighbours: ["az-", "am", "tr", "iq"],
-        color: colors[default_color]
-    },
-    "fo-": {
-        neighbours: ["UK_GB", "is"],
-        color: colors[default_color]
-    },
-    "im-": {
-        neighbours: ["UK_GB", "ireland"],
-        color: colors[default_color]
-    },
-    "mt-": {
-        neighbours: ["it-", "tn-"],
-        color: colors[default_color]
-    },
-    "tn-": {
-        neighbours: ["it-", "es-", "gr-", "dz", "mt-"],
-        color: colors[default_color]
-    },
-    "dz": {
-        neighbours: ["it-", "es-", "tn-", "ma-"],
-        color: colors[default_color]
-    },
-    "ma-": {
-        neighbours: ["pt-", "es-", "dz"],
-        color: colors[default_color]
-    },
-    "sm-": {
-        neighbours: ["it-"],
-        color: colors[default_color]
-    },
-    "va-": {
-        neighbours: ["it-"],
-        color: colors[default_color]
-    },
-    "je-": {
-        neighbours: ["fr-", "UK_GB"],
-        color: colors[default_color]
-    },
-    "ad-": {
-        neighbours: ["fr-", "es-"],
-        color: colors[default_color]
-    },
-    "li-": {
-        neighbours: ["at", "ch"],
-        color: colors[default_color]
-    },
-};
-
-// countries with exclaves
-const exclaves = {
-    "fr-": "path2166",
-    "es-": "Spain_Ibiza",
-    "no-": "path6606",
-    "ee-": "Estonia_Saaremaa",
-    // "ru-": "xq",
-    "ua-": "xq",
+    "CY": {
+        neighbours: ["TR", "GR"],
+        color: "none"
+    }
 };

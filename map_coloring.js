@@ -1,55 +1,49 @@
-// list of country ids
-const country_id_list = Object.keys(countries_graph);
-const exclave_id_list = Object.keys(exclaves);
-
-// return random int number
-function getRandomInt(max, prev = -1) {
-    let rand;
-    do rand = Math.floor(Math.random() * max);
-    while (rand === prev);
-
-    return rand;
-}
-
-// check if neighbouring country has the same color as the current country
-function check_neighbour(col, id) {
-    for (let i = 0; i < countries_graph[id].neighbours.length; i++) {
-        let cur = countries_graph[id].neighbours[i];
-        if (countries_graph[cur].color === col) return true;
-    }
-
-    return false;
-}
-
-// check if country has exclave
-function has_exclave(id) {
-    for (let i = 0; i < exclave_id_list.length; i++)
-        if (id === exclave_id_list[i]) return true;
-
-    return false;
+function shuffle_array(arr) {
+    arr.sort(function (a, b) {
+      return Math.random() - 0.5;
+    });
 }
 
 // color the map
 function color_map() {
-    // assign colors to each country
-    for (let i = 0; i < country_id_list.length; i++) {
+    // get country ids
+    const country_ids = Object.keys(countries_graph);
+
+    // shuffle colors and countries for differing results
+    shuffle_array(colors);
+    shuffle_array(country_ids);
+
+    // assing color to each country
+    for (let i = 0; i < country_ids.length; ++i) {
         let color_id = -1;
-        let country_color;
-        let cur = country_id_list[i];
+        let cur = country_ids[i];
 
-        do {
-            color_id = getRandomInt(colors.length - 1, color_id);
-            country_color = colors[color_id];
-            countries_graph[cur].color = country_color;
-        } while (check_neighbour(country_color, cur));
+        // try each color
+        for (let j = 0; j < colors.length; ++j) {
+            let canUse = true;
 
+            // check if neighbour has the same color
+            for (let n = 0; n < countries_graph[cur].neighbours.length; ++n) {
+                let nbr = countries_graph[cur].neighbours[n];
+
+                // if color is used try next color
+                if (countries_graph[nbr].color === colors[j]) {
+                    canUse = false;
+                    break;
+                }
+            }
+
+            // if neighbours dont use this color assign it
+            if (canUse) {
+                color_id = j;
+                break;
+            }
+        }
+
+        // assign color
+        countries_graph[cur].color = colors[color_id];
         let country = document.getElementById(cur);
         country.classList.add(countries_graph[cur].color);
-
-        if (has_exclave(cur)) {
-            country = document.getElementById(exclaves[cur]);
-            country.classList.add(countries_graph[cur].color);
-        }
     }
 }
 
