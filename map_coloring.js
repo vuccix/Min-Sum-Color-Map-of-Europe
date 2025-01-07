@@ -4,7 +4,6 @@ function shuffle_array(arr) {
     });
 }
 
-// color the map
 function color_map() {
     // get country ids
     const country_ids = Object.keys(countries_graph);
@@ -18,7 +17,7 @@ function color_map() {
         let color_id = -1;
         let cur = country_ids[i];
 
-        // try each color
+        // try color until you can use it
         for (let j = 0; j < colors.length; ++j) {
             let canUse = true;
 
@@ -45,6 +44,21 @@ function color_map() {
         let country = document.getElementById(cur);
         country.classList.add(countries_graph[cur].color);
     }
+}
+
+function reset() {
+    // get country ids
+    const country_ids = Object.keys(countries_graph);
+
+    // set colors to none
+    for (let i = 0; i < country_ids.length; ++i) {
+        let cur = country_ids[i];
+        let country = document.getElementById(cur);
+        country.classList.remove(countries_graph[cur].color);
+        countries_graph[cur].color = "none";
+    }
+
+    color_map();
 }
 
 color_map();

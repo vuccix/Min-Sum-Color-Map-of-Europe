@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap");
+
 * {
     margin: 0;
     padding: 0;
@@ -8,25 +10,46 @@
 }
 
 .map {
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    vertical-align: baseline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
 }
 
 svg {
     margin: auto;
-    width: 100vh;
-    height: 100%;
+    scale: 1.8;
+}
+
+button {
+    position: absolute;
+    font-size: x-large;
+    padding: .5em;
+    margin: 1em;
+    background-color: #34d95d;
+    font-family: 'Montserrat Alternates';
+    transition-duration: .25s;
+}
+
+button:hover {
+    color: white;
+    background-color: #2eb850;
+    box-shadow: 0 0 20px rgb(65, 65, 65);
+    transition-duration: .25s;
+}
+
+button:active {
+    background-color: #24923f;
 }
 
 .orange { fill: #ff8b3c; }
-.blue { fill: #006aff; }
-.red { fill: #ff4d4d; }
-.yellow { fill: #ffd008; }
-.purple { fill: #b96eff; }
-.green { fill: #37e362; }
-.none { fill: #ffffff; }
+.blue   { fill: #006aff; }
+.red    { fill: #ff4d4d; }
+.yellow { fill: #e6bd07; }
+.purple { fill: #9d5dd9; }
+.green  { fill: #34d95d; }
+.none   { fill: #ffffff; }
 
 .orange:hover, .blue:hover, .red:hover, .yellow:hover, .purple:hover, .green:hover {
     filter: contrast(200%);
